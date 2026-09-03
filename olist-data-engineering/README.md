@@ -53,3 +53,7 @@ The script prints validation metrics before writing output and stops on nonzero 
 - Parquet reduces storage and scan costs compared with CSV.
 - Partitioning by order status supports common operational filters.
 - Bucket names are placeholders; no account IDs, credentials, or private paths are committed.
+
+## Execution status
+
+The AWS EMR pipeline run was completed in 2026 against the eight Olist datasets stored in Amazon S3. The source bucket and account-specific paths remain private. The repository publishes the reproducible job, validation rules, and SQL analyses without credentials or private cloud identifiers.
