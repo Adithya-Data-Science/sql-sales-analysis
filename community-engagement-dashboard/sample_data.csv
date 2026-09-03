@@ -1,0 +1,7 @@
+record_id,reporting_period,participant_department,partnership_type,impact_area,satisfaction_score,funding_amount,student_volunteers
+R001,2026-01-01,Information Science,Nonprofit,Education,4.5,5000,12
+R002,2026-01-01,Business,Government,Economic Development,4.0,7500,8
+R003,2026-02-01,Information Science,School,Education,4.8,3500,15
+R004,2026-02-01,Arts and Sciences,Nonprofit,Health,3.9,4200,10
+R005,2026-03-01,Business,Business,Economic Development,4.3,9000,11
+R006,2026-03-01,Arts and Sciences,Government,Health,4.1,6000,9
