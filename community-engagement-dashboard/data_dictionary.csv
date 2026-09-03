@@ -1,0 +1,9 @@
+field_name,data_type,required,description,validation_rule
+record_id,text,yes,De-identified unique record key,Must be unique and nonblank
+reporting_period,date,yes,Month or reporting period,Valid date
+participant_department,text,yes,Standardized participant department,Must match approved department list
+partnership_type,text,yes,Community partnership classification,Must match approved category list
+impact_area,text,yes,Program impact category,Must match approved impact-area list
+satisfaction_score,decimal,no,Average or respondent satisfaction score,Range 1 to 5
+funding_amount,decimal,no,Funding associated with the activity,Must be zero or greater
+student_volunteers,integer,no,Student volunteer count,Must be zero or greater
