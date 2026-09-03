@@ -1,21 +1,24 @@
-# Survey Data Analysis and Stakeholder Reporting
+# Object-Oriented Survey Analytics and Stakeholder Reporting
 
-This reproducible project cleans survey-style data, validates response ranges, summarizes four KPIs, and produces three presentation-ready visualizations.
+This reproducible Python application converts survey-style records into validated stakeholder reporting. It uses separate classes for data ingestion and validation, KPI analysis, and output generation so each responsibility can be tested and reused independently.
 
-## Purpose and verified result
+## Verified outcome
 
-The project prevents incomplete, duplicated, or invalid responses from silently distorting stakeholder conclusions. It separates validation from reporting, then calculates response count, completion rate, average satisfaction, and positive-response rate. On the published synthetic test fixture, the workflow correctly detected one missing satisfaction response and produced all four KPI outputs and three charts.
+On the published eight-response synthetic fixture, the application:
 
-## What the workflow demonstrates
+- detected one missing satisfaction value without discarding the response;
+- produced four stakeholder KPIs: 87.5% completion, 3.86/5 average satisfaction, 71.4% positive responses, and eight total responses; and
+- generated three presentation-ready charts plus a machine-readable JSON summary.
 
-- Missing-value and duplicate-response checks
-- Standardization of categorical responses
-- Validation of satisfaction values on a 1-to-5 scale
-- KPI reporting for response count, completion rate, average satisfaction, and positive-response rate
-- Department, satisfaction, and response-channel visualizations
-- Machine-readable summary output for reporting or dashboard refreshes
+The tests also prove that duplicate response IDs and satisfaction values outside the 1-to-5 scale stop the workflow instead of silently distorting results.
 
-`sample_survey.csv` is synthetic and contains no personal information. The original graduate-research data is not published.
+## Object-oriented design
+
+- `SurveySchema` centralizes required fields and reporting thresholds.
+- `SurveyDataValidator` loads, standardizes, and validates records.
+- `SurveyKPIAnalyzer` calculates the four stakeholder KPIs.
+- `StakeholderReportGenerator` writes the JSON summary and three charts.
+- `SurveyReportingApplication` coordinates the end-to-end workflow.
 
 ## Run
 
@@ -23,6 +26,7 @@ The project prevents incomplete, duplicated, or invalid responses from silently 
 python -m venv .venv
 python -m pip install -r requirements.txt
 python survey_analysis.py sample_survey.csv results
+pytest -q
 ```
 
-The script stops if response IDs are missing or duplicated or if satisfaction values fall outside the expected range. The committed `results/summary.json` records the verified sample output.
+`sample_survey.csv` is synthetic and contains no personal information. Original research or institutional survey records are not published.
