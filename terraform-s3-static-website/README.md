@@ -28,3 +28,7 @@ terraform destroy
 ```
 
 This educational example intentionally exposes website objects publicly. A production design would normally use a private S3 origin behind CloudFront with TLS, access controls, logging, and a custom domain.
+
+## Completed validation
+
+The infrastructure was applied in AWS in August 2026, the generated website endpoint served the index and error pages, and the temporary resources were removed through Terraform. Account-specific endpoint and state data are intentionally not committed.
