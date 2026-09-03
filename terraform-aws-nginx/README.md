@@ -36,3 +36,7 @@ terraform destroy
 ```
 
 Terraform state and plan files are intentionally excluded from version control. The example allows public HTTP only; production deployments should add HTTPS, restricted administrative access, monitoring, and hardened configuration.
+
+## Completed validation
+
+The infrastructure was applied in AWS in August 2026, NGINX was reached through the instance's public endpoint, and the temporary environment was destroyed through Terraform. Account-specific endpoint and state data are intentionally not committed.
