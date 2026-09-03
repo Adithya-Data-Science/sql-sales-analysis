@@ -2,6 +2,10 @@
 
 A PySpark and Spark SQL project designed for AWS EMR that processes approximately 100,000 orders across eight linked public Olist datasets stored in Amazon S3.
 
+## Purpose and findings
+
+The project turns fragmented order, item, customer, payment, review, product, seller, and category files into a validated analytical layer for operations and customer-growth decisions. Comparing promised and actual delivery dates with review scores showed that late deliveries aligned with lower customer satisfaction, identifying delivery exceptions as a useful service-recovery and fulfillment-monitoring signal. The analysis also produces regional growth KPIs and loyalty, re-engagement, and service-recovery segments for reporting and outreach planning.
+
 ## Pipeline
 
 1. Read eight CSV datasets from an S3 prefix.
@@ -16,23 +20,12 @@ A PySpark and Spark SQL project designed for AWS EMR that processes approximatel
 
 - `queries.sql` reports delivered-order KPIs and reconciles payment totals against item and freight totals.
 - `customer_growth_analysis.sql` calculates repeat-customer rate, average customer value, recent high-value customers, re-engagement candidates, and review scores by state.
-- The customer query also creates a Salesforce-ready outreach queue using de-identified external customer IDs and segments such as loyal customer, high-value prospect, service recovery, and standard nurture.
-- The source dataset has no email or phone fields, so the project does not invent contact information or claim direct Salesforce administration.
+- The customer query creates a Salesforce-ready outreach structure using de-identified external customer IDs and honest segment labels.
+- The source data has no email or phone fields, so the project does not invent contact information or claim direct Salesforce administration.
 
 ## Data
 
-Download the public Brazilian E-Commerce dataset by Olist from Kaggle and place these files under one local directory or S3 prefix:
-
-- `olist_orders_dataset.csv`
-- `olist_order_items_dataset.csv`
-- `olist_customers_dataset.csv`
-- `olist_order_payments_dataset.csv`
-- `olist_order_reviews_dataset.csv`
-- `olist_products_dataset.csv`
-- `olist_sellers_dataset.csv`
-- `product_category_name_translation.csv`
-
-Source data is excluded because of its size and should remain governed separately from code.
+Download the public Brazilian E-Commerce dataset by Olist from Kaggle and place the eight source CSV files under one local directory or S3 prefix. Source data is excluded because of its size and should remain governed separately from code.
 
 ## Run locally
 
@@ -43,8 +36,6 @@ spark-submit spark_job.py --input-uri ./data/raw --output-uri ./data/processed
 ```
 
 ## Run on EMR
-
-Upload the input CSVs and `spark_job.py` to S3, then submit the job as an EMR Spark step:
 
 ```bash
 spark-submit spark_job.py \
