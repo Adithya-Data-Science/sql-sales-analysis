@@ -1,0 +1,9 @@
+response_id,department,channel,satisfaction,completed
+S001,Information Science,Email,5,True
+S002,Business,Web,4,True
+S003,Arts and Sciences,Email,3,True
+S004,Information Science,Web,4,True
+S005,Business,In Person,2,False
+S006,Arts and Sciences,Web,,True
+S007,Information Science,Email,5,True
+S008,Business,Web,4,True
