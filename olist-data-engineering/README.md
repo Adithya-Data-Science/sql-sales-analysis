@@ -1,6 +1,6 @@
-# Olist E-Commerce Data Engineering
+# Olist Data Engineering, Customer Growth, and Operations Analytics
 
-A PySpark pipeline designed for AWS EMR that processes approximately 100,000 orders across eight linked public Olist datasets stored in Amazon S3.
+A PySpark and Spark SQL project designed for AWS EMR that processes approximately 100,000 orders across eight linked public Olist datasets stored in Amazon S3.
 
 ## Pipeline
 
@@ -11,6 +11,13 @@ A PySpark pipeline designed for AWS EMR that processes approximately 100,000 ord
 5. Join orders, items, customers, payments, reviews, products, sellers, and category translations.
 6. Validate identifiers, duplicate keys, and negative prices.
 7. Write analytics-ready Parquet output partitioned by order status.
+
+## Operations and customer-growth analysis
+
+- `queries.sql` reports delivered-order KPIs and reconciles payment totals against item and freight totals.
+- `customer_growth_analysis.sql` calculates repeat-customer rate, average customer value, recent high-value customers, re-engagement candidates, and review scores by state.
+- The customer query also creates a Salesforce-ready outreach queue using de-identified external customer IDs and segments such as loyal customer, high-value prospect, service recovery, and standard nurture.
+- The source dataset has no email or phone fields, so the project does not invent contact information or claim direct Salesforce administration.
 
 ## Data
 
@@ -45,7 +52,7 @@ spark-submit spark_job.py \
   --output-uri s3://YOUR-BUCKET/olist/processed
 ```
 
-The script prints validation metrics before writing output and stops on nonzero duplicate/null/negative-price checks. `queries.sql` provides example Spark SQL KPI and reconciliation queries.
+The script prints validation metrics before writing output and stops on nonzero duplicate/null/negative-price checks.
 
 ## Design notes
 
@@ -56,4 +63,4 @@ The script prints validation metrics before writing output and stops on nonzero 
 
 ## Execution status
 
-The AWS EMR pipeline run was completed in 2026 against the eight Olist datasets stored in Amazon S3. The source bucket and account-specific paths remain private. The repository publishes the reproducible job, validation rules, and SQL analyses without credentials or private cloud identifiers.
+The AWS EMR pipeline run was completed in 2026 against the eight Olist datasets stored in Amazon S3. The source bucket and account-specific paths remain private. See [VERIFICATION.md](VERIFICATION.md) for the verification scope and disclosure limits.
