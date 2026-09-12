@@ -1,0 +1,61 @@
+{
+  "design": {
+    "users": 24000,
+    "required_users_per_arm": 9492,
+    "alpha": 0.05,
+    "power": 0.8
+  },
+  "randomization": {
+    "sample_ratio_mismatch": {
+      "control_n": 12026,
+      "treatment_n": 11974,
+      "p_value": 0.7371283613196389
+    },
+    "prior_activity_balance_p_value": 0.14703851449207908
+  },
+  "primary_activation": {
+    "control_rate": 0.4304007982704141,
+    "treatment_rate": 0.47486220143644564,
+    "absolute_effect": 0.04446140316603153,
+    "relative_lift": 0.10330232505307094,
+    "ci_low": 0.03187898309319885,
+    "ci_high": 0.057043823238864214,
+    "p_value": 4.545282475174033e-12,
+    "z_stat": 6.9190980354015865
+  },
+  "regression_adjusted_activation": {
+    "coefficient": 0.04331621505497763,
+    "standard_error": 0.006378899025586732,
+    "ci_low": 0.03081380270380999,
+    "ci_high": 0.05581862740614527,
+    "p_value": 1.1170900492159426e-11
+  },
+  "guardrails": {
+    "support_contact": {
+      "control_rate": 0.09096956594046234,
+      "treatment_rate": 0.07875396692834474,
+      "absolute_effect": -0.012215599012117592,
+      "relative_lift": -0.13428226116976796,
+      "ci_low": -0.01926489547003835,
+      "ci_high": -0.0051663025541968345,
+      "p_value": 0.0006859041492066817,
+      "z_stat": -3.395152376149848
+    },
+    "transaction_latency_ms": {
+      "control_mean": 426.85099544944336,
+      "treatment_mean": 430.6873710695007,
+      "absolute_effect": 3.8363756200573675,
+      "ci_low": 1.4953364664002233,
+      "ci_high": 6.177414773714512,
+      "p_value": 0.0013201203347924025
+    }
+  },
+  "difference_in_differences_engagement": {
+    "effect": 0.3316155791655757,
+    "standard_error": 0.01107401215158394,
+    "ci_low": 0.30991091418411226,
+    "ci_high": 0.35332024414703916,
+    "p_value": 5.0525055915086736e-197
+  },
+  "decision": "launch_with_monitoring"
+}
