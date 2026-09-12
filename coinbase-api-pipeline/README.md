@@ -1,4 +1,4 @@
-# Coinbase Public REST API Data Pipeline
+# Market Data REST API Pipeline
 
 A portfolio-grade Python data-engineering project that ingests public market candles from the Coinbase Exchange REST API, validates the response, de-duplicates overlapping windows, and upserts the cleaned records into a relational SQLite warehouse for SQL analysis. The project is intentionally read-only: it uses public market-data endpoints and does not place trades or require credentials.
 
@@ -82,8 +82,8 @@ Tests do not call the live Coinbase API. They mock HTTP responses so CI and loca
 ## Run with Docker
 
 ```bash
-docker build -t coinbase-api-pipeline .
-docker run --rm -v "${PWD}/data:/app/data" coinbase-api-pipeline \
+docker build -t market-data-api-pipeline .
+docker run --rm -v "${PWD}/data:/app/data" market-data-api-pipeline \
   --product BTC-USD \
   --start 2026-08-01T00:00:00Z \
   --end 2026-08-03T00:00:00Z \
