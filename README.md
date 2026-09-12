@@ -6,6 +6,7 @@ This repository contains reproducible projects supporting the technical and anal
 
 | Project | Technologies | What it demonstrates |
 | --- | --- | --- |
+| [Product Experimentation & Causal Impact Analysis](product-experimentation-causal-impact/README.md) | Python, SQL, Statsmodels, SciPy, Pytest | Designs and evaluates an onboarding A/B test with power analysis, randomization checks, confidence intervals, regression adjustment, heterogeneous treatment effects, guardrails, and difference-in-differences. |
 | [Market Data REST API Pipeline](coinbase-api-pipeline/README.md) | Python, REST API, SQLite, SQL, Pytest, Docker | Ingests public Coinbase market candles with retry/backoff logic, validates and de-duplicates responses, upserts into a relational warehouse, and supports repeatable SQL analysis. |
 | [Community Engagement Dashboard and Impact Reporting](community-engagement-dashboard/README.md) | Excel workflow, Python, data visualization | Defines five stakeholder KPI areas, validation controls, and a privacy-safe reproducible sample analysis. |
 | [Terraform AWS NGINX Infrastructure](terraform-aws-nginx/README.md) | Terraform, EC2, VPC, Linux | Creates a network and Ubuntu web server, installs NGINX, and exposes HTTP through a controlled security group. |
