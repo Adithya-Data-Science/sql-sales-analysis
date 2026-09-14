@@ -1,0 +1,6 @@
+[
+  {"asset_id":"A01","usage_date":"2026-09-01","hours":6.5},
+  {"asset_id":"A02","usage_date":"2026-09-01","hours":4.0},
+  {"asset_id":"A01","usage_date":"2026-09-02","hours":7.0},
+  {"asset_id":"A03","usage_date":"2026-09-02","hours":2.5}
+]
